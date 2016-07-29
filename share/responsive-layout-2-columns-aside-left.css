@@ -1,0 +1,56 @@
+/* Basic formatting for all devices and screens 
+-------------------------------------------------*/
+
+body {
+	font: 100% Georgia, "Times New Roman", serif;
+	margin: 0;
+}
+
+/* Border-size auf alle Elemente anwenden, damit man die Höhe und Breite problemlos angeben kann */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.page {
+	margin: 0 auto;
+	max-width: 60em; /* = 960px */
+}
+
+
+/* 48em (= 786px and more) 
+Formattings for iPad, Tablets and Desktop PC
+Only if screen width is at least 48em the layout shall have columns!!!
+---------------------------------------------------------------------*/
+@media only screen and (min-width: 48em) {
+	main {
+		float: right;
+		/*	width = desired width /width of .page (here 960px)
+			here: 600px/960px = 0,625
+		*/
+		width: 62.5%;
+	}
+
+	.sidebar {
+		float: left;
+		/*	width = desired width /width of .page (here 960px)
+			here: 300px/960px = 0,3125
+		*/
+		width: 31.25%;
+	}
+
+	/* Clearfix Patch, um das Floaten der Inhaltbereiche zu kontollieren */
+	.clearfix::before, .clearfix::after {
+		content: " ";
+		display: table;
+	}
+
+	.clearfix::after {
+		clear: both;
+	}
+
+	.clearfix {
+		*zoom: 1;
+	}
+}

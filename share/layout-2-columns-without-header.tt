@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<title>[% title %]</title>
+	<meta name="robots" content ="index, follow" />
+	<!-- Please add a desciption and keywords for your site --->
+	<meta name="description" content=""  />
+  	<meta name="keywords" content="" />
+ 	<meta name="generator" content="PLog/StaticVolt" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- START CSS / JS etc. --->
+	<link href="[% sv_rel_base %]media/css/reset.css" rel="stylesheet" type="text/css" media="all">
+	<link href="[% sv_rel_base %]media/css/layout.css" rel="stylesheet" type="text/css" media="all">
+	<!-- Please include css for the Site here with the following code: -->
+	<!-- <link href="[% sv_rel_base %]media/css/style.css" rel="stylesheet" type="text/css" media="all"> -->
+	
+	
+	<!-- END CSS -->
+</head>
+<body>
+<div class="page">
+<div class = "container clearfix">
+
+	<!-- START MAIN --->
+	<main role="main">
+		[% content %]
+	</main>
+	<!-- END MAIN -->
+
+	<!-- START SIDEBAR -->
+	<div class = "sidebar">
+	<aside>
+	<!-- [%# Please include templates for the Sidebar here with [% INCLUDE templatefile.tt %] -->
+	
+	
+	</aside>
+	</div>
+	<!-- END Sidebar -->
+</div>
+<!-- Ende Container -->
+
+<!-- START SEITEN FOOTER -->
+<footer role="contentinfo" class="footer">
+<!-- [%# Please include templates for the Footer here with [% INCLUDE templatefile.tt %] -->
+
+
+<p><small>Powered by PLog/StaticVolt</small></p>
+</footer>
+<!-- END Seiten Footer -->
+</div>
+</body>
+</html>

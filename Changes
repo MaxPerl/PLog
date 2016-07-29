@@ -1,0 +1,6 @@
+Revision history for Perl extension PLog.
+
+0.01  Sat Jul 16 08:54:31 2016
+	- original version; created by h2xs 1.23 with options
+		-XAn PLog
+
