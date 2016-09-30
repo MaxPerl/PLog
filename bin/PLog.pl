@@ -9,9 +9,6 @@ BEGIN {
 		package => 'Glib::IO');
 }
 
-# Just for testing the script
-use lib ('/home/maximilian/Dokumente/PLog/lib', '/home/maximilian/perl5/lib');
-
 use strict;
 use warnings;
 
