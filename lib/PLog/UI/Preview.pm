@@ -102,7 +102,8 @@ sub render_preview {
 		my $content = $options{'content'} || $self->{'content'};
 		
 		# Add the rel base to the links
-		my $sv_rel_base = $self->_relative_path ( $self->{'path'} );
+		my ($sv_rel_base, $base_uri) = $self->_relative_and_base_path ( $self->{'path'} );
+		print "BASE $base_uri\n";
 		$content =~ s/\<\%\s*sv_rel_base\s*\%\>/$sv_rel_base/g;
 	
 		my $textile = Text::Textile->new('disable_encode_entities' => 1,
@@ -118,7 +119,7 @@ sub render_preview {
 						<body>$html_content</body>\n
 						</html>";
 		
-		$view->load_string($html_content, 'text/html', 'UTF-8', 'file:///home/maximilian/Dokumente/www-maximilianlika-de/_source/galerie/');
+		$view->load_string($html_content, 'text/html', 'UTF-8', "file://$base_uri");
 	
 	}
 }
@@ -131,7 +132,7 @@ HERE
 	return $style;
 }
 
-sub _relative_path {
+sub _relative_and_base_path {
 
     my ($self,$dest_file) = @_;
 
@@ -146,7 +147,7 @@ sub _relative_path {
 
     $rel_path .= "/" if $rel_path;
 
-    return $rel_path;
+    return ($rel_path, $dest_file_dir);
 
 };
 
