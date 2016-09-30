@@ -1,0 +1,71 @@
+Blogconfig
+	-> 'includes'    => '/home/maximilian/Dokumente/www-maximilianlika-de/_includes',
+    -> 'layouts'     => '/home/maximilian/Dokumente/www-maximilianlika-de/_layouts',
+    -> 'blog_source'      => '/home/maximilian/Dokumente/www-maximilianlika-de/_blog_source',
+    -> 'destination' => '/home/maximilian/Dokumente/www-maximilianlika-de/_site',
+    -> 'blog_destination' => '/home/maximilian/Dokumente/www-maximilianlika-de/_site/blog',
+    -> 'siteconf' => '/home/maximilian/Dokumente/www-maximilianlika-de/www.maximilianlika.de.yaml'
+    
+    -> time (todo, current time when compiling)
+    -> html_files (todo, but not important; subset of static_files, listing those which end in '.html')
+    
+    -> 'title' (to do)
+    -> 'projectdir' (to do)
+    
+    -> 'staticfiles' => @staticfiles [in jekyll static_files]
+    -> 'directories' => @directories
+    -> 'post' => $post_ref (all information of the current post)
+    -> 'posts' => @posts => $post_ref
+								-> 'filename' => /path/to/YYMMDD_title.markdown [in jekyll 'path']
+								-> 'date' => YYYY-MM-DD HH:MM:SS (if saved in the YAML part)
+								-> 'date_raw' => YYYYMMDDHHMMSS
+								-> 'teaser'   => teaser in HTML [in jekyll excerpt]
+								-> 'tags'
+								-> 'url' (to do)
+								-> 'id' (to do = url ohne html)
+								-> 'next' / 'previous' (to do)
+								-> and every name/value pair in the YAML part
+    					
+    -> 'posts_$tag'	=> @posts (array with the posts of the specific tag) => $post_ref (same structure as above)
+    -> 'posts_YYYYMM' => @posts (array with the posts of the specific month) => $post_ref (same structure as above)
+    					
+    -> 'blogindexfiles' => @blogindexfiles => $blogindexfiles (same as pages but type = bloglist!)
+    
+    -> paginator
+    		-> per_page (Number of posts per page)
+    		-> total_posts (total number of posts)
+    		-> total_pages (total number of pages)
+    		-> posts (posts avaible for the current page)
+    		-> next_page_link (relative link adress to the next page) [in jekyll next_page_path]
+    		-> first_page_link (relative link adress to the first page) [in jekyll first_page_path]
+    		-> previous_page_link ((relative link adress to the previous page) [in jekly previous__page_path]
+    		-> page (to do; the number of the current page)
+    		-> next_page (to do;the number of the next page)
+    		-> previous_page (to do; the number of the previous page)
+    
+    
+    
+Siteconfig of the static pages Generator (almost the same)
+	-> 'includes'    => '/home/maximilian/Dokumente/www-maximilianlika-de/_includes',
+    -> 'layouts'     => '/home/maximilian/Dokumente/www-maximilianlika-de/_layouts',
+    -> 'source'      => '/home/maximilian/Dokumente/www-maximilianlika-de/_source',
+    -> 'destination' => '/home/maximilian/Dokumente/www-maximilianlika-de/_site',
+    -> 'blog_destination' => '/home/maximilian/Dokumente/www-maximilianlika-de/_site/blog',
+    -> 'siteconf' => '/home/maximilian/Dokumente/www-maximilianlika-de/www.maximilianlika.de.yaml'
+    
+    -> 'title' (to do)
+    -> 'projectdir' (to do)
+    
+    -> html_pages (todo, but not important; subset of pages, listing those which end in '.html')
+    -> html_files (todo, but not important; subset of static_files, listing those which end in '.html')
+    
+    -> 'staticfiles' => @staticfiles
+    -> 'directories' => @directories
+    -> 'page' => $page_ref (all informations of the current page)
+    -> 'pages' => @pages => $page_ref
+    						-> 'filename'
+    						-> 'url'
+    						-> 'pagedirectory'
+    						-> 'pagefile' (is the same as filename! in later versions delete it!)
+    						-> 'articles' (perhaps for later versions relevant)
+    						-> 'subpage (perhaps for later versions relevant)

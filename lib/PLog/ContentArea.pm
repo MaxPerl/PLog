@@ -44,11 +44,11 @@ sub get_content_area {
 sub clean {
 	my ($self) = @_;
 	
-	my @children = $self->get_children();
+	my @children = $content_area->get_children();
 	foreach my $children (@children) {
 		$children->destroy();
 	}
-	return 1;
+	return $content_area;
 }
 
 return 1;

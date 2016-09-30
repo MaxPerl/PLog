@@ -10,22 +10,27 @@ BEGIN {
 }
 
 # Just for testing the script
-#use lib './lib';
+use lib ('/home/maximilian/Dokumente/PLog/lib', '/home/maximilian/perl5/lib');
 
 use strict;
 use warnings;
 
+use Getopt::Std;
 use Gtk3;
 use Glib('TRUE', 'FALSE');
 use PLog;
 
-my $app = Gtk3::Application->new('app.test', 'flags-none');
+our ($opt_f);
+getopts("f:");
+
+my $app = Gtk3::Application->new('app.test', 'non-unique');
 
 $app->signal_connect('startup' => \&_init);
+$app->signal_connect('open' => \&_open_cb);
 $app->signal_connect('activate'=> \&_build_ui);
 $app->signal_connect('shutdown'=>\&_cleanup);
 
-$app->run(\@ARGV);
+$app->run();
 
 exit;
 
@@ -47,12 +52,21 @@ sub _init {
 }
 
 sub _build_ui {
-	my (@app) = @_;
+	my ($app) = @_;
 	my $window = PLog->new($app);
 	$window->signal_connect('delete_event' => sub {$app->quit()});
 	$window->show_all();
+	
+	if ($opt_f) {
+		$window->open_page_cb(\$opt_f) if (-e $opt_f);
+		print "OPT_F $opt_f \n";
+		die "Could not find file $opt_f:$! \n" if (! -e $opt_f);
+	}
 }
 
+sub open_cb {
+	print "@_\n";
+}
 sub _cleanup {
 	my ($app) = @_;
 }

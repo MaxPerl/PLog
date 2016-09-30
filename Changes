@@ -1,6 +1,48 @@
 Revision history for Perl extension PLog.
 
+0.07 Fr Sep 30 12:16:00 2016
+	-> Replace <% sv_rel_base %> before translating textile to html
+	-> Replace <% sv_rel_base %> in the preview
+	-> show static files in the preview by passing a base_uri to the webview method load_string
+	-> static images in the preview has maximal width of 150px
+	-> TODO: CSS SUPPORT IN THE PREVIEW
+0.06
+	-> Bugfixes
+	-> Rechanging to Textile
+	-> Change Template Toolkit TAG_STYLE to asp (<% or %>) to better work with Text::Textile
+	-> Implementation of Blog Generator and Site Generator in one module
+	-> Every page/post get all of the $siteconf
+	-> Implementation Preview in a own module
+
+0.05 Wed Sep 14 10:50:00 2016
+	-> When opening a file, the file is added to the unique instance of Gtk3 RecentManager
+	-> with the terminal option -f you can open conffiles
+	-> Fix Bug of displaying the Bloglists items
+	
+0.04 Tue Sep 13 18:26:00 2016
+	-> Complete implementation of a new structure:
+	-> All the informations about Static and Blog Content now are generated from the PLog/Generator Scripts
+	The PLog (GUI) Module is only a wrapper around the objects generated from the Generator Scripts instead of creating own objects in PLog::StaticContent etc.
+	
+	-> The UI components are more modularized (PLog::UI::StaticContent, PLog::UI::BlogContent) for easier maintaining
+	-> Minor bug fixes
+	-> Minor enhancements in the Generator scripts
+	-> The software is still ALPHA and the Blog Part cannot used at the moment (Perhaps changes in the syntax are possible!)
+	
+0.03 Wed Aug 24 15:00:00 2016
+	The software is still ALPHA and cannot be used at the moment!
+	- Generator Modifications
+		-> Pagination Support added for Blog Post
+	- UI Modification
+		-> Delete support for Textile
+		-> Support for Blog Posts (not ready at the moment)
+		-> TO DO: Bloglist Support
+0.02  
+	- Generator Modifications:
+		-> Copying static files etc. preserves last modified timestamp
+		-> Create a "dirty" workaround for using TT variables (especially [% sv_rel_base %] in Text::Textile content files
+	- Switch to Markdown because of its better perl and Gtk3 support!
 0.01  Sat Jul 16 08:54:31 2016
 	- original version; created by h2xs 1.23 with options
 		-XAn PLog
-
+ 	
